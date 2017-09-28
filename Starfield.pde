@@ -1,15 +1,25 @@
-//your code here
+NormalParticle [] stars;
 void setup()
 {
-	//your code here
+	
 }
 void draw()
 {
 	//your code here
 }
+int colors;
+double xPos,yPos,spd,ang;
 class NormalParticle
 {
-	//your code here
+  NormalParticle(int x, int y){
+    xPos = x;
+    yPos = y;
+    xPos = 50;
+    yPos = 50;
+    ang = Math.cos(2.03) * 8.25;
+	}
+  void show(){
+    ellipse(x,y,20,20);
 }
 interface Particle
 {
@@ -23,4 +33,3 @@ class JumboParticle //uses inheritance
 {
 	//your code here
 }
-
