@@ -5,7 +5,7 @@ void setup()
 {
   size(500, 500);
   frameRate(30);
-  particles = new Particle[300];
+  particles = new Particle[1000];
   for (int i = 0; i<particles.length; i++) {
     particles[i] = new NormalParticle();
   }
@@ -13,11 +13,7 @@ void setup()
 void mousePressed() {
   x = mouseX;
   y= mouseY;
-  
-  particle2=new Particle[100];
-  for(int o=0; o<particle2.length; o++){
-    particle2[o] = new NormalParticle();
-  }
+ 
   
   particles = new Particle[300];
   for (int i = 0; i<particles.length; i++) {
@@ -35,10 +31,6 @@ void draw()
     particles[i].move();
   }
   
-  for(int o=0; o<particle2.length;o++){
-    particle2[o].show();
-    particle2[o].move();
-  }
   
 }
 
@@ -61,8 +53,8 @@ class NormalParticle implements Particle {
     ellipse((float)dX, (float)dY, 10, 10);
   }
   public void move() {
-    dX = dX + (Math.cos(dir2)*nSpd);
-    dY = dY + (Math.sin(dir)*nSpd);
+    dX = (dX) + (Math.cos(dir2)*nSpd);
+    dY = (dY) + (Math.sin(dir)*nSpd);
   }
 }
 
