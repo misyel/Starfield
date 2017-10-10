@@ -1,45 +1,40 @@
 Particle[] particles;
-Particle[] particle2;
-int x,y;
+int x, y;
 void setup()
 {
-  size(500, 500);
+  size(1000, 1000);
   frameRate(30);
   particles = new Particle[1000];
   for (int i = 0; i<particles.length; i++) {
-    particles[i] = new NormalParticle();
+    particles[i] = new NormalParticle(x, y);
   }
 }
 void mousePressed() {
-  x = mouseX;
-  y= mouseY;
- 
-  
-  particles = new Particle[300];
+
   for (int i = 0; i<particles.length; i++) {
-    particles[i] = new NormalParticle();
+    particles[i] = new NormalParticle(x, y);
   }
 }
 
 
 void draw()
 {
+  x = mouseX;
+  y = mouseY;
   fill(0, 0, 0, 20);
-  rect(0, 0, 500, 500);
+  rect(0, 0, 1000, 1000);
   for (int i = 0; i<particles.length; i++) {
     particles[i].show();
     particles[i].move();
   }
-  
-  
 }
 
 class NormalParticle implements Particle {
   int  colors;
   double dX, dY, dir, nSpd, dir2;
-  NormalParticle() {
-    dX = 250;
-    dY =250;
+  NormalParticle(int x, int y) {
+    dX = x;
+    dY =x;
     nSpd = (Math.random()*2)+5;
     dir = (Math.random()*10)*(10*Math.PI)-20;
     dir2 = (Math.random())*(4*Math.PI)+50;
@@ -50,6 +45,8 @@ class NormalParticle implements Particle {
   public void show() {
     stroke(colors);
     fill(colors );
+    translate(width/2, height/2);
+    rotate(PI/3.0);
     ellipse((float)dX, (float)dY, 10, 10);
   }
   public void move() {
@@ -68,16 +65,20 @@ interface Particle
 
 
 
-class OddballParticle //uses an interface
+class OddballParticle implements Particle//uses an interface
 {
-  //your code here
+  public void move() {
+  }
+  public void show() {
+  }
 }
 
 
 
 
 
-class JumboParticle //uses inheritance
+class JumboParticle  //uses inheritance
 {
+
   //your code here
 }
