@@ -4,7 +4,7 @@ void setup()
 {
   size(1000, 1000);
   frameRate(30);
-  particles = new Particle[1000];
+  particles = new Particle[2500];
   for (int i = 1; i<particles.length; i++) {
     particles[i] = new NormalParticle(x, y);
     particles[1] = new OddballParticle();
@@ -26,11 +26,10 @@ void draw()
   x = mouseX;
   y = mouseY;
   //fill(0, 0, 0, 20);
-  if(keyPressed == true && key == 'p'){
+  if (keyPressed == true && key == 'p') {
     rect(0, 0, 1000, 1000);
     fill(0, 0, 0, 20);
-  }
-  else{
+  } else {
     fill(0, 0, 0, 20);
     rect(0, 0, 1000, 1000);
   }
@@ -105,20 +104,20 @@ class OddballParticle implements Particle//uses an interface
 
 class JumboParticle extends NormalParticle  //uses inheritance
 {
-  double dX, dY,dir, nSpd, dir2;
-  JumboParticle(){
-    super(x,y);
+  double dX, dY, dir, nSpd, dir2;
+  JumboParticle() {
+    super(x, y);
     dX=x;
     dY=y;
     nSpd = (Math.random()*2)+5;
     dir = (Math.random()*10)*(10*Math.PI);
     dir2 = (Math.random())*(4*Math.PI);
   }
-   public void move() {
+  public void move() {
     dX = (dX) + (Math.cos(dir2)*nSpd);
     dY = (dY) + (Math.sin(dir)*nSpd);
   }
-  public void show(){
+  public void show() {
     ellipse((float)dX, (float)dY, 100, 100);
   }
 }
