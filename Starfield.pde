@@ -2,9 +2,9 @@ Particle[] particles;
 int x, y;
 void setup()
 {
-  size(800, 800);
+  size(900, 600);
   frameRate(30);
-  particles = new Particle[1200];
+  particles = new Particle[1000];
   for (int i = 1; i<particles.length; i++) {
     particles[i] = new NormalParticle(x, y);
     particles[1] = new OddballParticle();
@@ -27,11 +27,11 @@ void draw()
   y = mouseY;
   //fill(0, 0, 0, 20);
   if (keyPressed == true && key == 'p') {
-    rect(0, 0, 800, 800);
+    rect(0, 0, 900, 600);
     fill(0, 0, 0, 20);
   } else {
     fill(0, 0, 0, 20);
-    rect(0, 0, 800, 800);
+    rect(0, 0, 900, 600);
   }
   for (int i = 1; i<particles.length; i++) {
     particles[1].show();
