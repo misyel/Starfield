@@ -2,7 +2,7 @@ Particle[] particles;
 int x, y;
 void setup()
 {
-  size(1000, 1000);
+  size(800, 800);
   frameRate(30);
   particles = new Particle[1200];
   for (int i = 1; i<particles.length; i++) {
@@ -27,11 +27,11 @@ void draw()
   y = mouseY;
   //fill(0, 0, 0, 20);
   if (keyPressed == true && key == 'p') {
-    rect(0, 0, 1000, 1000);
+    rect(0, 0, 800, 800);
     fill(0, 0, 0, 20);
   } else {
     fill(0, 0, 0, 20);
-    rect(0, 0, 1000, 1000);
+    rect(0, 0, 800, 800);
   }
   for (int i = 1; i<particles.length; i++) {
     particles[1].show();
