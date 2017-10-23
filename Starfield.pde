@@ -4,7 +4,7 @@ void setup()
 {
   size(1000, 1000);
   frameRate(30);
-  particles = new Particle[2500];
+  particles = new Particle[1200];
   for (int i = 1; i<particles.length; i++) {
     particles[i] = new NormalParticle(x, y);
     particles[1] = new OddballParticle();
